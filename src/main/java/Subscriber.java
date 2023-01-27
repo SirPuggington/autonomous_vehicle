@@ -1,4 +1,4 @@
-public class Subscriber {
+public abstract class Subscriber {
     protected int id;
 
     public Subscriber(int id) {

@@ -1,11 +1,11 @@
-import java.util.UUID;
-
 public class Door {
+    // static instance
     private static final Door instance = new Door();
 
+    // port
     public Port port;
     private DoorState state;
-
+    // constructor
     private Door() {
         port = new Port();
     }
@@ -15,32 +15,37 @@ public class Door {
     }
 
     public String innerVersion() {
-        return "Workshop | Door | [" + UUID.randomUUID() + "]";
+        return "Workshop | Electric Engine ";
     }
 
+    private DoorState innerUnlock() {
+        state = DoorState.UNLOCK;
+        return state;
+    }
+    private DoorState innerLock() {
+        state = DoorState.LOCK;
+        return state;
+    }
     private DoorState innerOpen() {
         state = DoorState.OPEN;
         return state;
     }
-
     private DoorState innerClose() {
-        state = DoorState.CLOSED;
-        return state;
-    }
-
-    private DoorState innerLock() {
-        state = DoorState.LOCKED;
-        return state;
-    }
-
-    private DoorState innerUnlock() {
-        state = DoorState.UNLOCKED;
+        state = DoorState.CLOSE;
         return state;
     }
 
     public class Port implements IDoor {
         public String version() {
             return innerVersion();
+        }
+
+        public DoorState unlock() {
+            return innerUnlock();
+        }
+
+        public DoorState lock() {
+            return innerLock();
         }
 
         public DoorState open() {
@@ -51,14 +56,11 @@ public class Door {
             return innerClose();
         }
 
-        public DoorState lock() {
-            return innerLock();
+        public String getState() {
+            return state.name();
         }
 
-        public DoorState unlock() {
-            return innerUnlock();
-        }
+
 
     }
 }
-

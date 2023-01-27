@@ -2,13 +2,15 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
-
 public class DoorFactory {
+
     public static Object build() {
         Object port = null;
 
+
+
         try {
-            URL[] urls = {new File(Configuration.INSTANCE.pathToDoorArchive + "door.jar").toURI().toURL()};
+            URL[] urls = {new File(Configuration.INSTANCE.pathToJavaArchiveDoor + "door.jar").toURI().toURL()};
             URLClassLoader urlClassLoader = new URLClassLoader(urls, DoorFactory.class.getClassLoader());
             Class<?> doorClass = Class.forName("Door", true, urlClassLoader);
             Object doorInstance = doorClass.getMethod("getInstance").invoke(null);

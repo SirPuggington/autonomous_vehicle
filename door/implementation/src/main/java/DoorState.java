@@ -1,3 +1,3 @@
 public enum DoorState {
-    OPEN ,CLOSED, LOCKED, UNLOCKED
+    UNLOCK, LOCK, CLOSE, OPEN
 }

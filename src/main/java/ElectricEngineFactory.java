@@ -8,7 +8,7 @@ public class ElectricEngineFactory {
         Object port = null;
 
         try {
-            URL[] urls = {new File(Configuration.INSTANCE.pathToJavaArchive + "engine.jar").toURI().toURL()};
+            URL[] urls = {new File(Configuration.INSTANCE.pathToJavaArchiveElectricEngine + "engine.jar").toURI().toURL()};
             URLClassLoader urlClassLoader = new URLClassLoader(urls, ElectricEngineFactory.class.getClassLoader());
             Class<?> electricEngineClass = Class.forName("ElectricEngine", true, urlClassLoader);
             Object electricEngineInstance = electricEngineClass.getMethod("getInstance").invoke(null);

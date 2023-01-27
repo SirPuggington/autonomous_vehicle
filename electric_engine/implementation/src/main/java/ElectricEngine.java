@@ -3,10 +3,11 @@ public class ElectricEngine {
     private static final ElectricEngine instance = new ElectricEngine();
     // port
     public Port port;
+    //attributes
     private String serialNumber;
     private ElectricEngineState state;
 
-
+    //constructor
     private ElectricEngine() {
         port = new Port();
     }

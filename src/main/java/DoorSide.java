@@ -1,3 +1,3 @@
 public enum DoorSide {
-    LEFT,RIGHT
+    RIGHT, LEFT, ALL
 }
